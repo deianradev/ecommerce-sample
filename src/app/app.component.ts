@@ -4,15 +4,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageLoaderComponent } from './components/page-loader/page-loader.component';
 import { LoadingService } from './services/loading.service';
-import { ViewportScroller } from '@angular/common';
+import { ViewportScroller, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, PageLoaderComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    PageLoaderComponent
+  ],
   template: `
-    <app-page-loader />
     <div class="min-h-screen flex flex-col">
+      <app-page-loader></app-page-loader>
       <app-header></app-header>
       <main class="flex-grow pt-16">
         <router-outlet></router-outlet>
