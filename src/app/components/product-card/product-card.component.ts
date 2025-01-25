@@ -3,8 +3,8 @@ import { RouterLink } from '@angular/router';
 import { Product } from '../../models/product.model';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-// import { NotificationService } from '../../services/notification.service';
-//TODO
+import { NotificationService } from '../../services/notification.service';
+
 @Component({
   selector: 'app-product-card',
   standalone: true,
@@ -65,7 +65,7 @@ export class ProductCardComponent {
   
   constructor(
     private cartService: CartService,
-    // private notificationService: NotificationService
+    private notificationService: NotificationService
   ) {}
 
   get isInCart(): boolean {
@@ -78,6 +78,6 @@ export class ProductCardComponent {
 
   addToCart() {
     this.cartService.addToCart(this.product);
-    // this.notificationService.show(`${this.product.name} added to cart`);
+    this.notificationService.show(`${this.product.name} added to cart`);
   }
 }
