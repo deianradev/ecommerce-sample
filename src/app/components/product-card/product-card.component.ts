@@ -15,7 +15,7 @@ import { NotificationService } from '../../services/notification.service';
         <img [src]="product.imageUrl" [alt]="product.name" 
              class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500">
         @if (isInCart) {
-          <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
+          <div class="absolute bottom-4 right-4 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
             In Cart ({{quantity}})
           </div>
         }
