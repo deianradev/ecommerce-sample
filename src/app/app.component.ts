@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageLoaderComponent } from './components/page-loader/page-loader.component';
 import { LoadingService } from './services/loading.service';
 import { ViewportScroller, CommonModule } from '@angular/common';
+import { ToastNotificationsComponent } from './components/toast-notifications/toast-notifications.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { ViewportScroller, CommonModule } from '@angular/common';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    PageLoaderComponent
+    PageLoaderComponent,
+    ToastNotificationsComponent
   ],
   template: `
     <div class="min-h-screen flex flex-col">
@@ -24,6 +26,7 @@ import { ViewportScroller, CommonModule } from '@angular/common';
         <router-outlet></router-outlet>
       </main>
       <app-footer></app-footer>
+      <app-toast-notifications></app-toast-notifications>
     </div>
   `
 })

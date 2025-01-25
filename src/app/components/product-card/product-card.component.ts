@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Product } from '../../models/product.model';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-product-card',
@@ -62,7 +63,10 @@ import { CartService } from '../../services/cart.service';
 export class ProductCardComponent {
   @Input({ required: true }) product!: Product;
   
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private notificationService: NotificationService
+  ) {}
 
   get isInCart(): boolean {
     return this.cartService.isInCart(this.product.id);
@@ -73,8 +77,7 @@ export class ProductCardComponent {
   }
 
   addToCart() {
-    if (this.product.inStock) {
-      this.cartService.addToCart(this.product);
-    }
+    this.cartService.addToCart(this.product);
+    this.notificationService.show(`${this.product.name} added to cart`);
   }
 }
